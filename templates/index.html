@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Market Trend Predictor</title>
+  <style>
+    body { background: #f5f5f5; font-family: Arial; text-align: center; padding: 40px; }
+    form { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input { padding: 10px; margin: 10px; width: 200px; }
+    button { padding: 10px 20px; background: green; color: white; border: none; border-radius: 5px; }
+    .result { margin-top: 20px; font-size: 20px; }
+  </style>
+</head>
+<body>
+  <h1>📊 Stock Market Trend Predictor</h1>
+  <form action="/predict" method="POST">
+    <input type="text" name="symbol" placeholder="Enter Stock Symbol (e.g., AAPL, TSLA)" required>
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if result %}
+  <div class="result">
+    <p><b>{{ symbol }}</b> → {{ result }}</p>
+    <p>Model Accuracy: {{ accuracy }}%</p>
+  </div>
+  {% endif %}
+</body>
+</html>
